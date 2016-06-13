@@ -1,5 +1,37 @@
-extends layout
+extends layout-material
 
+block append scripts
+  // Your application bootstrap 
+  script(type="text/javascript", src="app.js")    
 block content
-  h1= title
-  p Welcome to #{title}
+  body(ng-app="BlankApp", ng-cloak='')
+    div(ng-controller='AppCtrl', ng-cloak='')
+      md-toolbar(md-scroll-shrink='')
+        .md-toolbar-tools
+           md-button.md-icon-button(aria-label='inactive button')
+             md-icon(md-font-set='material-icons', ng-click='toggle()') menu
+           h2= title
+      include sidebar.jade
+      md-content.md-padding(layout-md='column', layout='row')
+        | We're delighted to have you at our special day!
+      div.md-content.md-padding(layout-md='column', layout='row', style="background-image:url('http://placekitten.com/1280/1200')")
+        div(flex-xs='', flex-gt-xs='50', layout='column')
+          md-card(md-theme='default', md-theme-watch='')
+            md-card-title
+              md-card-title-text
+                span.md-headline Time
+                div(style="font-size: 144pt; text-align: center") 18
+                div(style="font-size: x-large; text-align: center") February 2017
+        div(flex-xs='', flex-gt-xs='50', layout='column')
+          md-card(md-theme='default', md-theme-watch='')
+            md-card-title
+              md-card-title-text
+                span.md-headline Location
+                span.md-subhead
+                  | Glen Waverley Anglican Church
+                  br
+                  | 800 Waverley Road, Glen Waverley
+            md-card-content
+              iframe(ng-show='showMap', width='100%', height='450', frameborder='0', style='border:0', src='https://www.google.com/maps/embed/v1/place?key=AIzaSyDtVmNIo6Kmjnb8xa5M9VFhi5TFRTTorR8&q=800+Waverley+Road+Glen+Waverley', allowfullscreen='')
+            md-card-actions(layout='row', layout-align='end center')
+              md-button.md-raised(ng-click='showMap = !showMap') {{showMap ? &quot;Hide map&quot; : &quot;View on map&quot; }}
