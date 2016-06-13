@@ -26,7 +26,7 @@ passport.serializeUser((user, done) => { done(null, user); });
 passport.deserializeUser((user, done) => { done(null, user); });
 
 var ensureAuthenticated = (req, res, next) => {
-  if (req.isAuthenticated()) { 
+  if (req.isAuthenticated()) {
     return next(); 
   }
   console.log(`not authenticated. session: ${JSON.stringify(req.session)}`);
@@ -65,4 +65,3 @@ router.get('/',
 );
 
 module.exports = router;
-

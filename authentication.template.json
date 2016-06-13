@@ -1,0 +1,6 @@
+{
+  "facebook": {
+    "appid": "INSERT APPID HERE",
+    "secret": "INSERT SECRET HERE"
+  }
+}
