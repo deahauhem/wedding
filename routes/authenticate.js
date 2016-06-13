@@ -38,7 +38,6 @@ var ensureAuthenticated = (req, res, next) => {
 var router = express.Router();
 router.get('/login',
     (req, res, next) => { 
-      console.log(`GET headers: ${JSON.stringify(req.headers)}`);
       res.render('authentication/login'); 
     }
 );
@@ -64,4 +63,4 @@ router.get('/',
     (req, res, next) => { res.render('authentication/index'); }
 );
 
-module.exports = router;
+module.exports = {router: router, ensureAuthenticated: ensureAuthenticated};

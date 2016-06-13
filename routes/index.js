@@ -5,6 +5,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.render('index', { 
     title: 'Leah and Wayne\`s Wedding',
+    user: req.user,
     sidebar: {
       title: 'Menu'
     }

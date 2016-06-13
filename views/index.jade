@@ -13,16 +13,16 @@ block content
            h2= title
       include sidebar.jade
       md-content.md-padding(layout-md='column', layout='row')
-        | We're delighted to have you at our special day!
-      div.md-content.md-padding(layout-md='column', layout='row', style="background-image:url('http://placekitten.com/1280/1200')")
-        div(flex-xs='', flex-gt-xs='50', layout='column')
+        | Welcome #{user.name}! We're delighted to have you at our special day!
+      md-content.md-padding(layout-md='column', layout='row', style="background-image:url('http://placekitten.com/1280/1200')")
+        div(flex-xs='', flex-gt-xs='50', layout='column', layout-xs='row')
           md-card(md-theme='default', md-theme-watch='')
             md-card-title
               md-card-title-text
                 span.md-headline Time
                 div(style="font-size: 144pt; text-align: center") 18
                 div(style="font-size: x-large; text-align: center") February 2017
-        div(flex-xs='', flex-gt-xs='50', layout='column')
+        div(flex-xs='', flex-gt-xs='50', layout='column', layout-xs='row')
           md-card(md-theme='default', md-theme-watch='')
             md-card-title
               md-card-title-text
@@ -32,6 +32,6 @@ block content
                   br
                   | 800 Waverley Road, Glen Waverley
             md-card-content
-              iframe(ng-show='showMap', width='100%', height='450', frameborder='0', style='border:0', src='https://www.google.com/maps/embed/v1/place?key=AIzaSyDtVmNIo6Kmjnb8xa5M9VFhi5TFRTTorR8&q=800+Waverley+Road+Glen+Waverley', allowfullscreen='')
+              iframe(ng-show='showMap', width='100%', height='450', frameborder='0', style='border:0', src='https://www.google.com/maps/embed/v1/place?key=AIzaSyDtVmNIo6Kmjnb8xa5M9VFhi5TFRTTorR8&q=Glen+Waverley+Anglican+Church', allowfullscreen='')
             md-card-actions(layout='row', layout-align='end center')
-              md-button.md-raised(ng-click='showMap = !showMap') {{showMap ? &quot;Hide map&quot; : &quot;View on map&quot; }}
+              md-button(ng-click='showMap = !showMap') {{showMap ? &quot;Hide map&quot; : &quot;View on map&quot; }}
